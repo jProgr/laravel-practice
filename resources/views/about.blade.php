@@ -79,19 +79,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-                
-                @if (isset($teacher))
-                    <p>{{ $teacher }}</p>
-                @endif
-
-                <div class="links">
-                    @foreach ($links as $link => $text)
-                        <a href="{{ $link }}">{{ $text }}</a>
-                    @endforeach
+                    Acerca de
                 </div>
             </div>
+
         </div>
     </body>
 </html>
