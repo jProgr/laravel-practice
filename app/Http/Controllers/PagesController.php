@@ -8,18 +8,29 @@ class PagesController extends Controller
 {
     public function home()
     {
-        $links = [
-            'https://laracasts.com' => 'Laracasts',
-            'https://laravel-news.com' => 'News',
-            'https://forge.laravel.com' => 'Forge',
-            'https://github.com/laravel/laravel' => 'GitHub'
+        $messages = [
+            [
+                'id' => 1,
+                'content' => 'Mensaje de prueba 1',
+                'image' => 'http://placekitten.com/g/600/338'
+            ],
+            [
+                'id' => 2,
+                'content' => 'Mensaje de prueba 2',
+                'image' => 'http://placekitten.com/g/600/338'
+            ],
+            [
+                'id' => 3,
+                'content' => 'Mensaje de prueba 3',
+                'image' => 'http://placekitten.com/g/600/338'
+            ],
+            [
+                'id' => 4,
+                'content' => 'Mensaje de prueba 4',
+                'image' => 'http://placekitten.com/g/600/338'
+            ]
         ];
 
-        return view('welcome', [ 'links' => $links ]);
-    }
-
-    public function about()
-    {
-        return view('about');
+        return view('welcome', [ 'messages' => $messages ]);
     }
 }
