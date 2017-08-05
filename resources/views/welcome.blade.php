@@ -10,14 +10,16 @@
         </nav>
     </div>
     <div class="row">
-        @foreach($messages as $message)
+        @forelse($messages as $message)
             <div class="col-6 col-xs-6">
-                <img src="{{ $message['image'] }}" class="img-thumbnail">
+                <img src="{{ $message->image }}" class="img-thumbnail">
                 <p class="card-text">
-                    {{ $message['content'] }}
-                    <a href="/messages/{{ $message['id'] }}">More</a>
+                    {{ $message->content }}
+                    <a href="/messages/{{ $message->id }}">More</a>
                 </p>
             </div>
-        @endforeach
+        @empty
+            <p>No messages</p>
+        @endforelse
     </div>
 @stop
