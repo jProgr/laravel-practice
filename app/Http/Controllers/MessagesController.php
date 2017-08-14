@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Message;
+use App\Http\Requests\CreateMessageRequest;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
@@ -14,11 +15,13 @@ class MessagesController extends Controller
         ]);
     }
 
-    public function create(Request $request)
+    public function create(CreateMessageRequest $request)
     {
-        $this->validate($request, [
-            'message' => ['required', 'max:160']
+        $message = Message::create([
+            'content' => $request->input('message'),
+            'image' => 'http://placekitten.com/g/600/338'
         ]);
-        return 'Created';
+
+        return redirect('/messages/' . $message->id);
     }
 }
