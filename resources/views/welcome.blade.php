@@ -36,5 +36,11 @@
         @empty
             <p>No messages</p>
         @endforelse
+
+        @if(count($messages))
+            <div class="mt-2 mx-auto">
+                {{ $messages->links() }}
+            </div>
+        @endif
     </div>
 @stop
