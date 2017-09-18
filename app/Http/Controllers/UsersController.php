@@ -26,6 +26,16 @@ class UsersController extends Controller
         return redirect("/$username")->withSuccess('Followed');
     }
 
+    public function unfollow($username, Request $request)
+    {
+        $user = $this->findByUsername($username);
+
+        $me = $request->user();
+        $me->follows()->detach($user);
+
+        return redirect("/$username")->withSuccess('Unfollowed');
+    }
+
     public function follows($username)
     {
         $user = $this->findByUsername($username);
