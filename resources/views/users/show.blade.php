@@ -2,6 +2,12 @@
 
 @section('content')
     <h1>{{ $user->name }}</h1>
+    <a href="/{{ $user->username }}/follows" class="btn btn-link">
+        Follows <span>{{ $user->follows->count() }}</span>
+    </a>
+    <a href="/{{ $user->username }}/followers" class="btn btn-link">
+        Followers <span>{{ $user->followers->count() }}</span>
+    </a>
 
     @if(Auth::check())
         @if(Auth::user()->isFollowing($user))
