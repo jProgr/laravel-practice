@@ -11,7 +11,7 @@
     </div>
 
     <div class="row">
-        <form action="/messages/create" method="post">
+        <form action="/messages/create" method="post" enctype="multipart/form-data">
             <div class="form-group @if ($errors->has('message')) has-danger @endif">
                 {{ csrf_field() }}
                 <input type="text" name="message" class="form-control" placeholder="La chucha">
@@ -20,6 +20,7 @@
                         <div class="alert">{{ $error }}</div>
                     @endforeach
                 @endif
+                <input type="file" class="form-control-file" name="image">
             </div>
         </form>    
     </div>
